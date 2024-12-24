@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { RiMenu2Fill } from "react-icons/ri";
 import { RiMenu3Fill } from "react-icons/ri";
 import {GifContext} from '../Context/GifContext';
+import GifSearch from './GifSearch';
 
 
 // const Headercomp = ({title}) => {
@@ -20,7 +21,7 @@ import {GifContext} from '../Context/GifContext';
 // };
 
 const Header = () => {
-    const {gf,   filter, setFilter, favorites} = useContext(GifContext)
+    const {gf,  favorites} = useContext(GifContext)
     
     const fetchGifsCategories = async () =>{
     const {data} = await gf.categories();
@@ -78,7 +79,7 @@ className={` hover:gradient cursor-pointer ${showCategories? "gradient" : " "}  
 
         <Link key={category.name}
         to={`/${category.name_encoded}`} className=' font-bold'>
-            <h1>{category.name}</h1>
+            <h1 onClick={()=>setShowCategories(!showCategories)}>{category.name}</h1>
         </Link>
         ))}
         {/* <Link to='/Ajectives' className='hover:gradient font-bold'>
@@ -98,6 +99,7 @@ className={` hover:gradient cursor-pointer ${showCategories? "gradient" : " "}  
 )}
 </div>
 </div>
+<GifSearch />
       </nav>
       
     
