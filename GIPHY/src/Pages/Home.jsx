@@ -23,9 +23,9 @@ const Home = () => {
 
       <img src="/banner.gif" alt=""
       className='mt-2 rounded w-full' />
-      <FilterGifs />
+      <FilterGifs showtrending />
       {/* rendering gifs */}
-      <div className='columns-2 md:columns-3 lg:columns-4 gap-2'>
+      <div className='columns-2 md:columns-3 lg:columns-4 gap-2 '>
         {gifs && gifs.map((gifs)=>{
 return(
   <Gifs gif={gifs} key={gifs.title} />
