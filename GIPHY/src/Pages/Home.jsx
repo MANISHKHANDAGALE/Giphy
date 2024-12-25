@@ -6,7 +6,7 @@ const Home = () => {
   const {gf,gifs, setGifs,filter} = useContext(GifContext)
   const TrendingGifs = async ()=>{
     const {data} = await gf.trending({
-      limit : 30 ,
+      limit : 50 ,
       rating   : 'g',
       type : filter
     })

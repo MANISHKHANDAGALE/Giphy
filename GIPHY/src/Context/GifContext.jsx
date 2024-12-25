@@ -9,9 +9,9 @@ const GifProvider = ({ children }) => {
   const [gifs, setGifs] = useState([]);
   const [filter, setFilter] = useState("gifs");
   const [favorites, setFavorites] = useState([]);
-
+const addtoFavorites = {}
   return (
-    <GifContext.Provider value={{ gf, gifs, setGifs, filter, setFilter, favorites }}>
+    <GifContext.Provider value={{ gf, gifs, setGifs, filter, setFilter, favorites,addtoFavorites }}>
       {children}
     </GifContext.Provider>
   );
