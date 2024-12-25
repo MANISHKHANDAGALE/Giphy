@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { GifContext } from '../Context/GifContext';
 import Gifs from '../Components/Gifs';
-
+import { FaChevronCircleUp } from "react-icons/fa";
+import { FaChevronCircleDown } from "react-icons/fa";
+import FollowOn from "../Components/FollowOn"
 const content = ["gifs", "stickers", "texts"];
 const SingleGif = () => {
   const [relatedGifs, setRelatedGifs] = useState([])
@@ -28,7 +30,49 @@ fetch();
   return (
     <div className='grid grid-cols-4 gap-4 my-10'>
 <div className='hidden sm:block'>
-sidebar
+{gif?.user && (
+  <>
+  <div className='flex items-center'>
+  <img src={gif?.user?.avatar_url} alt={gif.display_name}
+    className='h-16'
+    />
+    <div className='px-2 gap-2 items-center'>
+      <h2 className='font-bold'>
+        {gif?.user?.display_name}
+      </h2>
+      <h2 className='faded-text'>
+        @{gif?.user?.username}
+      </h2>
+    </div>
+  </div>
+  <div className='py-2 whitespace-pre-line text-sm text-gray-500'>
+    {gif?.user?.description && (
+      <p>
+        {readMore ? (
+          gif?.user?.description
+        ):(
+          gif?.user?.description.slice(0,100) + "..."
+        )}
+     <div className='flex items-center faded-text cursor-pointer' onClick={()=> setReadMore(!readMore)}>
+{readMore ? (
+
+  <>
+  read less <FaChevronCircleDown size={20} className='ml-2 mt-1' />
+  </>
+):(
+
+  <>
+  read more <FaChevronCircleUp size={20} className='ml-2 mt-1' />
+  </>
+)}
+     </div>
+      </p>
+    )}
+  </div>
+  </>
+)}
+< FollowOn />
+<div className='divider'/>
 </div>
 <div className='col-span-4 sm:col-span-3'>
 <div className='flex gap-6'>
