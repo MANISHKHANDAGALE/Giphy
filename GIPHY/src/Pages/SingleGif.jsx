@@ -43,8 +43,12 @@ const SingleGif = () => {
       }, 0);
     }
   };
-  console.log(favorites,addtoFavorites)
-  const shareGif =()=> {}
+  
+  const shareGif =({ gifUrl })=> {
+      const message = `Check out this GIF: ${gifUrl}`;
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+  }
   return (
     <div className='grid grid-cols-4 gap-4 my-10 overflow-hidden'>
       <div className='hidden sm:block'>
