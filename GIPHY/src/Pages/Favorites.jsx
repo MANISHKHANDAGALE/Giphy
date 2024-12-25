@@ -15,7 +15,7 @@ const Favorites = () => {
   },[])
   return (
     <div className='my-2 '>
-      <span className='font-extrabold text-4xl ml-[44%] '>My Favorites</span>
+      <span className='font-extrabold text-4xl '>My Favorites</span>
       <div className='columns columns-2 md:columns-3 lg:columns-4 '>
         {favoritesGifs?.map((gif)=>(
           <Gifs gif={gif} key={gif.id} />
