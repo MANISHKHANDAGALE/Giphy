@@ -16,7 +16,7 @@ const SingleGif = () => {
   const [gif, SetGif] = useState([])
   const [readMore, setReadMore] = useState(false);
   const { type, slug } = useParams()
-  const { gf, atttoFavorites, favorites } = useContext(GifContext)
+  const { gf, addtoFavorites, favorites } = useContext(GifContext)
   const fetch = async () => {
     const GifId = slug.split('-');
     const { data } = await gf.gif(GifId[GifId.length - 1])
@@ -43,7 +43,8 @@ const SingleGif = () => {
       }, 0);
     }
   };
-  const shareGif = {}
+  console.log(favorites,addtoFavorites)
+  const shareGif =()=> {}
   return (
     <div className='grid grid-cols-4 gap-4 my-10 overflow-hidden'>
       <div className='hidden sm:block'>
@@ -122,7 +123,7 @@ const SingleGif = () => {
           <div className='sm:flex hidden flex-col gap-6 mt-6'>
 
             <button className='flex gap-5 items-center font-bold text-lg'
-            onClick={()=> atttoFavorites(gif.id)}
+            onClick={()=> addtoFavorites(gif.id)}
             >
               <HiMiniHeart
                 size={30}
