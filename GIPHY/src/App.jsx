@@ -33,6 +33,10 @@ const router = createBrowserRouter([
       {
         path:'/:type/:slug',
         element:<SingleGif />,
+      },
+      {
+        path:'/404',
+        element:<Home />,
       }
     ]
   }

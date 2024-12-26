@@ -41,9 +41,9 @@ useEffect(()=>{
         
 <Link to = '/' className='flex gap-2'>
 <img src="logo.svg" className='w-8' alt="logo" />
-<h1 className='text-5xl tracking-tight cursor-pointer font-bold'>GIPHY</h1>
+<h1 className='text-2xl md:text-5xl tracking-tight cursor-pointer font-bold '>GIPHY</h1>
 </Link>
-<div className='flex gap-4 items-center overflow-hidden'>
+<div className='flex gap-4 items-center overflow-hidden mr-5 md:mr-0'>
  {/* rendering categories */}
 {/* <Headercomp title={titles}  /> */}
 {categories?.slice(0,5)?.map((category)=>(
