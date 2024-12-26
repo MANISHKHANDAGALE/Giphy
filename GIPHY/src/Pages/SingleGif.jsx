@@ -38,9 +38,7 @@ const SingleGif = () => {
     const newSlug = gif.slug; 
     if (slug !== newSlug) {
       fetch()
-      setTimeout(() => {
-        window.location.reload();
-      }, 0);
+      
     }
   };
   
